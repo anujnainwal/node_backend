@@ -1,7 +1,7 @@
 import express from "express";
 import helmet from "helmet";
 import cors from "cors";
-import { corsOptions } from "./src/config/corsOption.js";
+import { corsOptions } from "./config/corsOption.js";
 const app = express();
 
 //setup basic
