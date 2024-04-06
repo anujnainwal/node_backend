@@ -31,8 +31,4 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  return res.status(200).json({ message: " ok server online." });
-});
-
 export default app;

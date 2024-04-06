@@ -1,6 +1,18 @@
 import app from "./app.js";
 import chalk from "chalk";
+import {
+  notFoundResponse,
+  sendSuccessResponse,
+} from "./src/utils/utility.helper.js";
 const port = process.env.PORT || 9090;
+
+app.get("/", (req, res) => {
+  sendSuccessResponse(res, true, "Now server is online.");
+});
+
+app.use("/*", (req, res) => {
+  notFoundResponse(res, false, "This Route does not exist.");
+});
 
 app.listen(port, () => {
   console.log(
