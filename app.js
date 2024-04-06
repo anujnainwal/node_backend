@@ -3,11 +3,15 @@ import helmet from "helmet";
 import cors from "cors";
 import { corsOptions } from "./config/corsOption.js";
 import database from "./config/database.js";
+import { requestLogger } from "./src/utils/logs.helper.js";
+import logger from "morgan";
 const app = express();
 
 database();
 
 //setup basic
+app.use(requestLogger);
+app.use(logger("short"));
 app.use(helmet());
 app.use(cors(corsOptions));
 app.use(express.json());
