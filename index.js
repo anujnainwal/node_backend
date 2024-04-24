@@ -9,11 +9,18 @@ import { errorLogger } from "./src/utils/logs.helper.js";
 const port = process.env.PORT || 9090;
 
 app.get("/", (req, res) => {
-  sendSuccessResponse(res, true, `Now server is online.`);
+  sendSuccessResponse(res, true, 200, `Now server is online.`);
 });
 
 app.use("/*", (req, res) => {
-  notFoundResponse(res, false, "This Route does not exist.");
+  notFoundResponse(
+    res,
+    false,
+    404,
+    "The route you are attempting to access does not exist.",
+    null,
+    "You are in route, but the route you are looking for does not exist."
+  );
 });
 
 app.use(errorLogger);

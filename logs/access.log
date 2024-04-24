@@ -1,1 +1,9 @@
 ::1 - GET / HTTP/1.1 200 59 - 9.590 ms
+::1 - GET / HTTP/1.1 200 61 - 22.379 ms
+::1 - GET /favicon.ico HTTP/1.1 404 87 - 1.699 ms
+::1 - GET / HTTP/1.1 200 75 - 11.807 ms
+::1 - GET /2 HTTP/1.1 404 87 - 1.523 ms
+::1 - GET /2 HTTP/1.1 404 163 - 6.015 ms
+::1 - GET /2 HTTP/1.1 404 166 - 12.946 ms
+::1 - GET /2 HTTP/1.1 404 194 - 9.272 ms
+::1 - GET / HTTP/1.1 304 - - 3.757 ms
