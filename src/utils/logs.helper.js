@@ -19,13 +19,27 @@ const accessLogStream = rfs.createStream("access.log", {
   compress: "gzip",
 });
 
-const requestLogger = morgan("short", { stream: accessLogStream });
+const requestLogger = morgan(
+  (tokens, req, res) => {
+    return [
+      tokens.method(req, res),
+      tokens.url(req, res),
+      tokens.status(req, res),
+      `Request Name: ${req.name}`, // Assuming req.name contains your request name
+      tokens["response-time"](req, res), // Add other tokens as needed
+      "ms",
+    ].join(" ");
+  },
+  { stream: accessLogStream }
+);
 
 const errorLogger = (err, req, res, next) => {
   const errorLogStream = fs.createWriteStream(path.join(logsDir, "error.log"), {
     flags: "a",
   });
-  errorLogStream.write(`${new Date().toISOString()} - ${err.message}\n`);
+  errorLogStream.write(
+    `${new Date().toISOString()} - ${req.name} - ${err.message}\n`
+  ); // Include request name in error logs
   next(err);
 };
 

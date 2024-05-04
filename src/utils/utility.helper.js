@@ -1,32 +1,24 @@
-const sendSuccessResponse = (res, success, status, message, data = null) => {
+const sendSuccessResponse = (res, success, message, data = null) => {
   return res
     .status(200)
-    .json({ success: success, status: status, message: message, data: data });
+    .json({ success: success, message: message, data: data });
 };
 
-const sendSuccessResponseWithData = (
-  res,
-  success,
-  status,
-  message,
-  data = null
-) => {
+const sendSuccessResponseWithData = (res, success, message, data = null) => {
   return res
     .status(201)
-    .json({ success: success, status: status, message: message, data: data });
+    .json({ success: success, message: message, data: data });
 };
 
 const sendErrorResponse = (
   res,
   success,
-  status,
   message,
   data = null,
   errorDetails = null
 ) => {
   return res.status(400).json({
     success: success,
-    status: status,
     message: message,
     data: data,
     errorDetails: errorDetails,
@@ -36,14 +28,12 @@ const sendErrorResponse = (
 const unauthorizeResponse = (
   res,
   success,
-  status,
   message,
   data = null,
   errorDetails = null
 ) => {
   return res.status(401).json({
     success: success,
-    status: status,
     message: message,
     data: data,
     errorDetails: errorDetails,
@@ -53,14 +43,12 @@ const unauthorizeResponse = (
 const forribdenResponse = (
   res,
   success,
-  status,
   message,
   data = null,
   errorDetails = null
 ) => {
   return res.status(403).json({
     success: success,
-    status: status,
     message: message,
     data: data,
     errorDetails: errorDetails,
@@ -70,14 +58,12 @@ const forribdenResponse = (
 const notFoundResponse = (
   res,
   success,
-  status,
   message,
   data = null,
   errorDetails = null
 ) => {
   return res.status(404).json({
     success: success,
-    status: status,
     message: message,
     data: data,
     errorDetails: errorDetails,
@@ -87,14 +73,12 @@ const notFoundResponse = (
 const alreadyExistsResponse = (
   res,
   success,
-  status,
   message,
   data = null,
   errorDetails = null
 ) => {
   return res.status(409).json({
     success: success,
-    status: status,
     message: message,
     data: data,
     errorDetails: errorDetails,
@@ -104,20 +88,16 @@ const alreadyExistsResponse = (
 const internalErrorResponse = (
   res,
   success,
-  status,
   message,
   data = null,
   errorDetails = null
 ) => {
-  return res
-    .status(500)
-    .json({
-      success: success,
-      status: status,
-      message: message,
-      data: data,
-      errorDetails: errorDetails,
-    });
+  return res.status(500).json({
+    success: success,
+    message: message,
+    data: data,
+    errorDetails: errorDetails,
+  });
 };
 
 export {
