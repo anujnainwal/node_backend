@@ -11,3 +11,11 @@
 ::1 - GET /favicon.ico HTTP/1.1 404 194 - 2.487 ms
 ::1 - GET / HTTP/1.1 304 - - 1.952 ms
 GET / 304 Request Name: undefined 9.486 ms
+GET / 200 Request Name: undefined 14.908 ms
+GET /favicon.ico 404 Request Name: undefined 1.561 ms
+GET / 200 Request Name: undefined 8.657 ms
+GET /s 404 Request Name: undefined 1.404 ms
+GET /s 404 Request Name: undefined 8.359 ms
+GET / 304 Request Name: undefined 1.392 ms
+GET /juy 404 Request Name: undefined 1.085 ms
+GET / 304 Request Name: undefined 1.156 ms

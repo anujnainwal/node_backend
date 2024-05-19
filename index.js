@@ -9,13 +9,12 @@ import { errorLogger } from "./src/utils/logs.helper.js";
 const port = process.env.PORT || 9090;
 
 app.get("/", (req, res) => {
-  sendSuccessResponse(res, true, `Now server is online.`);
+  sendSuccessResponse(res, "Server Online.");
 });
 
 app.use("/*", (req, res) => {
   notFoundResponse(
     res,
-    false,
     "The route you are attempting to access does not exist.",
     null,
     "You are in route, but the route you are looking for does not exist."
