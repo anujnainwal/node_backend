@@ -5,8 +5,21 @@ import {
   sendSuccessResponse,
 } from "./src/utils/utility.helper.js";
 import { errorLogger } from "./src/utils/logs.helper.js";
-
+import { db } from "./config/database.js";
 const port = process.env.PORT || 9090;
+
+db.sequelize
+  .sync()
+  .then(() => {
+    console.log("Database Status", chalk.green.bold("connected."));
+  })
+  .catch((err) => {
+    console.log(
+      chalk.red.bold("Error connecting to the database"),
+      err.message
+    );
+    process.exit(1);
+  });
 
 app.get("/", (req, res) => {
   sendSuccessResponse(res, "Server Online.");
